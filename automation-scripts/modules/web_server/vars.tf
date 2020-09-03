@@ -13,3 +13,12 @@ variable "public_subnet_id" {
     description = "Public Subnet Id for Web server Launch"
 }
 
+variable "key_name" {
+    type = string
+    description = "Instance SSH Key name"
+}
+
+variable "instance_type" {
+    type = string
+    description = "Web Server Configuration"
+}

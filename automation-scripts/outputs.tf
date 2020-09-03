@@ -17,3 +17,11 @@ output "private_subnet_ids" {
 output "private_subnet_cidrs"{
     value = module.vpc.private_cidr
 }
+
+output "web_server_public_ip" {
+    value = module.web_server.public_ip
+}
+
+output "web_server_security_id" {
+    value = module.web_server.security_group_id
+}

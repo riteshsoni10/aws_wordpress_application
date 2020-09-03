@@ -23,20 +23,31 @@ variable "vpc_dns_hostnames_state" {
     description = "Enable/Disable DNS Hostnames assign"
 }
 
-variable "instance_ami" {
+variable "instance_key_name" {
+    type = string
+    description = "Instance SSH Key name"
+    default = "instance-key"
+}
+
+variable "web_server_instance_ami" {
+    type = string
+    description = "AMI Id of Instance Image"
+    default = "ami-052c08d70def0ac62"
+}
+
+variable "web_server_instance_type" {
+    type = string
+    description = "Web Server Configuration"
+}
+
+variable "db_server_instance_ami" {
     type = string
     description = "AMI Id of Instance Image"
     default = "ami-052c08d70def0ac62"
 }
 
 
-variable "instance_key_name" {
+variable "db_server_instance_type" {
     type = string
-    description = "Instance SSH Key name"
-    default = "web-server"
-}
-
-variable "instance_type" {
-    type = string
-    description = "Web Server Configuration"
+    description = "Database Server Configuration"
 }

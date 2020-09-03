@@ -26,6 +26,7 @@ variable "vpc_dns_hostnames_state" {
 variable "instance_ami" {
     type = string
     description = "AMI Id of Instance Image"
+    default = "ami-052c08d70def0ac62"
 }
 
 

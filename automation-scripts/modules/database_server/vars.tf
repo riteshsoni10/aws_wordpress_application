@@ -3,6 +3,11 @@ variable "ami_id" {
     description = "AMI Id of Instance Image"
 }
 
+variable "vpc_cidr_block"{
+    type = string
+    description = "CIDR Block of VPC for Database Server Access"
+}
+
 variable "vpc_id" {
     type = string
     description = "Web Server Network VPC ID"
@@ -15,7 +20,7 @@ variable "private_subnet_id" {
 
 variable "key_name" {
     type = string
-    description = "Instance SSH Key name"
+    description = "Database Server SSH Key name"
 }
 
 variable "instance_type" {

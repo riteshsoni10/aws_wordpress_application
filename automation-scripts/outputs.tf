@@ -22,6 +22,14 @@ output "web_server_public_ip" {
     value = module.web_server.public_ip
 }
 
-output "web_server_security_id" {
+output "web_server_security_group_id" {
     value = module.web_server.security_group_id
+}
+
+output "database_server_public_ip" {
+    value = module.database_server.public_ip
+}
+
+output "database_server_security_group_id" {
+    value = module.database_server.security_group_id
 }

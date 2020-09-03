@@ -1,4 +1,4 @@
 .terraform*
 terraform.tfstate*
 .git*
-web-server
+instance-key

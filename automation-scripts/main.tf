@@ -12,9 +12,12 @@ module "vpc" {
 }
 
 module "web_server" {
-    source = "./modules/web_server"
-    ami_id  = var.instance_ami
-    vpc_id = module.vpc.vpc_id
+    source           = "./modules/web_server"
+    ami_id           = var.instance_ami
+    vpc_id           = module.vpc.vpc_id
+    instance_type    = var.instance_type
+    key_name         = var.instance_key_name
     public_subnet_id = module.vpc.public_subnets.0
 }
+
 

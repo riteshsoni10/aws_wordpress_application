@@ -26,8 +26,8 @@ output "web_server_security_group_id" {
     value = module.web_server.security_group_id
 }
 
-output "database_server_public_ip" {
-    value = module.database_server.public_ip
+output "database_server_private_ip" {
+    value = module.database_server.private_ip
 }
 
 output "database_server_security_group_id" {

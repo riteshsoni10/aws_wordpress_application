@@ -22,3 +22,20 @@ variable "vpc_dns_hostnames_state" {
     type = bool
     description = "Enable/Disable DNS Hostnames assign"
 }
+
+variable "instance_ami" {
+    type = string
+    description = "AMI Id of Instance Image"
+}
+
+
+variable "instance_key_name" {
+    type = string
+    description = "Instance SSH Key name"
+    default = "web-server"
+}
+
+variable "instance_type" {
+    type = string
+    description = "Web Server Configuration"
+}

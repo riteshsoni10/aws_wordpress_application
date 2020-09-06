@@ -29,8 +29,8 @@ resource "aws_route_table" "public_route_table" {
 
 ## Public Route Table Association => Public-Subnets
 resource "aws_route_table_association" "public_route_table_association" {
-    count          = "${length(data.aws_availability_zones.available.names)}" 
-    subnet_id      = "${element(aws_subnet.public_subnet.*.id,count.index)}"
+    count          = length(data.aws_availability_zones.available.names) 
+    subnet_id      = element(aws_subnet.public_subnet.*.id,count.index)
     route_table_id = aws_route_table.public_route_table.id
 
     depends_on     = [

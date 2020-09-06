@@ -13,22 +13,6 @@
     enabled: true
     state: started
 
-- name: Get list of hosts for the root user.
-  command: mysql -NBe
-    "SELECT Host
-    FROM mysql.user
-    WHERE User = '{{ mysql_root_username }}'
-    ORDER BY (Host='localhost') ASC"
-  register: mysql_root_hosts
-  changed_when: false
-  check_mode: false
-  when: mysql_install_packages.rc == 0
-  
-- name: Update MySQL root password for localhost root account (5.7.x).
-  shell: mysql -u root -NBe 'ALTER USER "{{ mysql_root_username }}"@"{{ item }}"IDENTIFIED WITH mysql_native_password BY "{{ mysql_root_password }}";'
-  with_items: "{{ mysql_root_hosts.stdout_lines | default([]) }}"
-  ignore_errors: true
-
 - name: Get list of hosts for the anonymous user.
   command: mysql -NBe 'SELECT Host FROM mysql.user WHERE User = ""'
   register: mysql_anonymous_hosts
@@ -58,4 +42,21 @@
     encrypted: "{{ item.encrypted | default('no') }}"
   with_items: "{{ mysql_users }}"
   no_log: true
+
+
+- name: Get list of hosts for the root user.
+  command: mysql -NBe
+    "SELECT Host
+    FROM mysql.user
+    WHERE User = '{{ mysql_root_username }}'
+    ORDER BY (Host='localhost') ASC"
+  register: mysql_root_hosts
+  changed_when: false
+  check_mode: false
+  when: mysql_install_packages.rc == 0
+
+- name: Update MySQL root password for localhost root account (5.7.x).
+  shell: mysql -u root -NBe 'ALTER USER "{{ mysql_root_username }}"@"{{ item }}"IDENTIFIED WITH mysql_native_password BY "{{ mysql_root_password }}";'
+  with_items: "{{ mysql_root_hosts.stdout_lines | default([]) }}"
+  ignore_errors: true
 

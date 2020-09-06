@@ -24,3 +24,11 @@ variable "instance_type" {
     description = "Temporary Server Configuration"
     default    = "t2.micro"
 }
+
+
+variable "connection_user" {
+    type = string
+    description = "The login user for SSH connection"
+    default     = "ec2-user"
+}
+

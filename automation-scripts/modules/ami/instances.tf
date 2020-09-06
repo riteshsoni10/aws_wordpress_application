@@ -16,6 +16,7 @@ resource "aws_instance" "mysql_ami" {
     ]
 }
 
+/*
 ## Wordpress Instance
 resource "aws_instance" "wordpress-ami" {
     ami                         = var.ami_id
@@ -33,4 +34,4 @@ resource "aws_instance" "wordpress-ami" {
         aws_key_pair.ami_key_pair,
     ]
 }
-
+*/

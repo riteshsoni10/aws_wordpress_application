@@ -16,11 +16,11 @@ variable "public_subnet_id" {
 variable "key_name" {
     type = string
     description = "Instance SSH Key name"
-    deafult = "temp-key"
+    default = "temp-key"
 }
 
 variable "instance_type" {
     type = string
     description = "Temporary Server Configuration"
-    deafult    = "t2.micro"
+    default    = "t2.micro"
 }

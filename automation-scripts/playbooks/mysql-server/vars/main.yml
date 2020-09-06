@@ -1,0 +1,9 @@
+---
+# vars file for mysql-server
+mysql_packages: ['mysql-server','python3-PyMySQL']
+mysql_root_username: 'root'
+mysql_root_password: 'admin@123'
+mysql_users: 
+  - name: wpadmin
+    host: 'localhost'
+    password: wordpress

@@ -10,6 +10,10 @@ resource "aws_instance" "web_server" {
                         Name = "Web-Server"
     }
 
+   lifecycle {
+      create_before_destroy = true
+   }
+
     depends_on  = [
         aws_security_group.web_server_security_group,
         aws_key_pair.create_instance_key_pair,

@@ -18,6 +18,7 @@ output "private_subnet_cidrs"{
     value = module.vpc.private_cidr
 }
 
+/*
 output "web_server_public_ip" {
     value = module.web_server.public_ip
 }
@@ -33,3 +34,4 @@ output "database_server_private_ip" {
 output "database_server_security_group_id" {
     value = module.database_server.security_group_id
 }
+*/

@@ -11,6 +11,16 @@ module "vpc" {
 
 }
 
+module "ami_creation" {
+    source           = "./modules/ami"
+    ami_id           = var.web_server_instance_ami
+    vpc_id           = module.vpc.vpc_id
+    instance_type    = var.web_server_instance_type
+    key_name         = var.instance_key_name
+    public_subnet_id = module.vpc.public_subnets.0
+
+}
+/*
 module "web_server" {
     source           = "./modules/web_server"
     ami_id           = var.web_server_instance_ami
@@ -30,3 +40,4 @@ module "database_server" {
     private_subnet_id = module.vpc.private_subnets.0
 }
 
+*/

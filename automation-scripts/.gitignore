@@ -1,6 +1,0 @@
-.terraform*
-terraform.tfstate*
-.git*
-instance-key
-temp-key
-.gitignore
